@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0t$vsid5$1&i@nw2i@l)&w&v+%+4n4cm_ap!lr*6x5pd_#^hj!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '193.187.175.99']
+ALLOWED_HOSTS = ['localhost', '193.187.175.99', '127.0.0.1']
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'Azimut_DM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Azimut_DM',
+        'USER': 'azimut_dm_dev',
+        'PASSWORD': 'Ku1Ku2Ru3Za4',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
