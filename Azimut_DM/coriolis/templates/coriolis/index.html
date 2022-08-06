@@ -105,7 +105,7 @@
                 {% if j.regulation.id == i.id %}
                 <div id="item-{{ i.id }}-{{ j.id }}">
                     <h4>{{ j.name }}</h4>
-                    <p>{{ j.description }}</p>
+                    <p>{{ j.description|linebreaks }}</p>
                 </div>
                 {% endif %}
                 {% endfor %}
