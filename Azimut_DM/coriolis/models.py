@@ -41,3 +41,29 @@ class AdvantageType(models.Model):
         verbose_name = 'Достоинства'  # Наименование в ед. числе
         verbose_name_plural = 'Типы достоинства'  # Наименование в мног. числе
         ordering = ['name']  # Сортировка
+
+
+class Regulation(models.Model):
+    name = models.CharField(max_length=150, db_index=True, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Правило раздел'  # Наименование в ед. числе
+        verbose_name_plural = 'Правил разделы '  # Наименование в мног. числе
+        ordering = ['name']  # Сортировка
+
+
+class Description(models.Model):
+    name = models.CharField(max_length=150, db_index=True, verbose_name='Наименование')
+    description = models.TextField(blank=True, verbose_name='Описание')
+    regulation = models.ForeignKey('Regulation', on_delete=models.PROTECT, null=True, verbose_name='Разделы')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Правило'  # Наименование в ед. числе
+        verbose_name_plural = 'Правила'  # Наименование в мног. числе
+        ordering = ['name']  # Сортировка

@@ -6,3 +6,8 @@ body{
 .bg_color_blue {
 	background-color:#E7F1FF;
 }
+
+.bg_color_black{
+    background-color:rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}

@@ -76,50 +76,48 @@
     </div>
 </div>
 
-<div class="container text-dark">
+<div class="container text-white bg_color_black">
+    <!-- head-->
     <div class="row">
-        <div class="col">
-            <!-- head-->
-            {% for j in advantage_type %}
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne{{ j.id }}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne{{ j.id }}" aria-expanded="false"
-                            aria-controls="collapseOne{{ j.id }}">
-                        {{ j.name }}
-                    </button>
-                </h2>
-                <div id="collapseOne{{ j.id }}" class="accordion-collapse collapse"
-                     aria-labelledby="headingOne{{ j.id }}"
-                     data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {% for i in advantage %}
-                        {% if j.id == i.advantage_type.id %}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading{{ i.id }}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse{{ i.id }}" aria-expanded="false"
-                                        aria-controls="collapse{{ i.id }}">
-                                    {{ i.name }}
-                                </button>
-                            </h2>
-                            <div id="collapse{{ i.id }}" class="accordion-collapse collapse"
-                                 aria-labelledby="heading{{ i.id }}"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    {{ i.description }}
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-3">
+            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                <nav class="nav nav-pills flex-column">
+                    {% for i in regulation %}
+                    <a class="nav-link" href="#item-{{ i.id }}">{{ i.name }}</a>
+                    <nav class="nav nav-pills flex-column">
+                        {% for j in description %}
+                        {% if j.regulation.id == i.id %}
+                        <a class="nav-link ms-3 my-1 " href="#item-{{ i.id }}-{{ j.id }}">{{ j.name }}</a>
                         {% endif %}
                         {% endfor %}
-                    </div>
+                    </nav>
+                    {% endfor %}
+                </nav>
+            </nav>
+        </div>
+
+        <div class="col-9">
+            <div class="card-body">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+                 class="scrollspy-example-2" tabindex="0" >
+                {% for i in regulation %}
+                {% for j in description %}
+                {% if j.regulation.id == i.id %}
+                <div id="item-{{ i.id }}-{{ j.id }}">
+                    <h4>{{ j.name }}</h4>
+                    <p>{{ j.description }}</p>
                 </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
             </div>
-            {% endfor %}
+        </div>
         </div>
     </div>
+
+    <!-- head-->
 </div>
+
 
 </body>
 </html>

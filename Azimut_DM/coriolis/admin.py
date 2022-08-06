@@ -7,7 +7,6 @@ class AdvantageAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'advantage_type', 'description', 'price', 'image', 'is_published',)
     list_display_links = ('id', 'name',) #Делает поля ссылкой
     search_fields = ('name', 'description') #Поиск по полям
-    #list_editable = ('is_published',) #Редактирование из основного окна
     list_filter = ('name', 'advantage_type') #Сортировка
 
 
@@ -22,6 +21,18 @@ class AdvantageTypeAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name',) #Делает поля ссылкой
 
 
+class RegulationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    list_display_links = ('id', 'name',) #Делает поля ссылкой
+
+
+class DescriptionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    list_display_links = ('id', 'name',) #Делает поля ссылкой
+
+
 admin.site.register(Advantage, AdvantageAdmin)
 admin.site.register(Banner, CategoryAdmin)
 admin.site.register(AdvantageType, AdvantageTypeAdmin)
+admin.site.register(Regulation, RegulationAdmin)
+admin.site.register(Description, DescriptionAdmin)
