@@ -81,13 +81,13 @@
     <div class="row">
         <div class="col-3">
             <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                <nav class="nav nav-pills flex-column">
+                <nav class="nav nav-pills flex-column sticky-top">
                     {% for i in regulation %}
-                    <a class="nav-link" href="#item-{{ i.id }}">{{ i.name }}</a>
+                    <a class="nav-link" href="#item-{{ i.id }}" >{{ i.name }}</a>
                     <nav class="nav nav-pills flex-column">
                         {% for j in description %}
                         {% if j.regulation.id == i.id %}
-                        <a class="nav-link ms-3 my-1 " href="#item-{{ i.id }}-{{ j.id }}">{{ j.name }}</a>
+                        <a class="nav-link ms-3 my-1" href="#item-{{ i.id }}-{{ j.id }}">{{ j.name }}</a>
                         {% endif %}
                         {% endfor %}
                     </nav>
@@ -101,6 +101,9 @@
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
                  class="scrollspy-example-2" tabindex="0" >
                 {% for i in regulation %}
+                 <div class="d-flex justify-content-center" id="item-{{ i.id }}">
+                    <h4>{{ i.name }}</h4>
+                </div>
                 {% for j in description %}
                 {% if j.regulation.id == i.id %}
                 <div id="item-{{ i.id }}-{{ j.id }}">
