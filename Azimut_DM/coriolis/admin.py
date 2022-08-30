@@ -10,8 +10,8 @@ class AdvantageAdmin(admin.ModelAdmin):
     list_filter = ('name', 'advantage_type') #Сортировка
 
 
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'photo',)
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'photo','prioritet',)
     list_display_links = ('id', 'name',) #Делает поля ссылкой
     search_fields = ('name',) #Поиск по полям
 
@@ -32,7 +32,7 @@ class DescriptionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Advantage, AdvantageAdmin)
-admin.site.register(Banner, CategoryAdmin)
+admin.site.register(Banner, BannerAdmin)
 admin.site.register(AdvantageType, AdvantageTypeAdmin)
 admin.site.register(Regulation, RegulationAdmin)
 admin.site.register(Description, DescriptionAdmin)

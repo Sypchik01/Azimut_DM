@@ -9,6 +9,7 @@ def index(request):
     advantage_type = AdvantageType.objects.all()
     regulation = Regulation.objects.all()
     description = Description.objects.all()
+    banner = Banner.objects.all()
 
     return render(
         request,
@@ -17,4 +18,5 @@ def index(request):
          'advantage_type': advantage_type,
          'regulation': regulation,
          'description': description,
+         'banner': banner,
          })
